@@ -16,7 +16,7 @@ using std::setw;
 
 void Create(int **a, const int rowCount, const int colCount, const int Low, const int High, const int rowNo, const int colNo);
 void Print(int **a, const int rowCount, const int colCount, const int rowNo, const int colNo);
-void SumOddColMax(int **a, const int rowCount, const int colCount, int &S, const int rowNo, const int colNo, const int z);
+void SumOddColMax(int **a, const int rowCount, const int colCount, int &S, const int rowNo, const int colNo);
 void Max(int **a, const int rowCount, const int colNo, const int i, int &max);
 
 int main()
@@ -57,7 +57,7 @@ int main()
 	Create(Q, rowCount, colCount, Low, High, 0, 0);
 	cout << endl;
 	Print(Q, rowCount, colCount, 0, 0);
-	SumOddColMax(Q, rowCount, colCount, S, 0, 0, 0);
+	SumOddColMax(Q, rowCount, colCount, S, 0, 0);
 
 	cout << "Sum of maximal elements in odd columns = " << S << endl;
 
@@ -100,15 +100,15 @@ void Print(int **a, const int rowCount, const int colCount, const int rowNo, con
 		cout << endl;
 }
 
-void SumOddColMax(int **a, const int rowCount, const int colCount, int &S, const int rowNo, const int colNo, const int z)
+void SumOddColMax(int **a, const int rowCount, const int colCount, int &S, const int rowNo, const int colNo)
 {
-	if (z < colCount / 2.)
+	if (colNo < colCount)
 	{
 		int max = a[0][colNo];
 		Max(a, rowCount, colNo, 0, max);
 
 		S += max;
-		SumOddColMax(a, rowCount, colCount, S, 0, colNo + 2, z + 1);
+		SumOddColMax(a, rowCount, colCount, S, 0, colNo + 2);
 	}
 }
 

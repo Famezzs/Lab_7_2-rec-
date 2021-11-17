@@ -30,7 +30,7 @@ namespace UnitTest72rec
 						Z[row][col] = 2;
 			}
 
-			SumOddColMax(Z, rowCount, colCount, S, 0, 0, 0);
+			SumOddColMax(Z, rowCount, colCount, S, 0, 0);
 
 			Assert::AreEqual(S, 8);
 
